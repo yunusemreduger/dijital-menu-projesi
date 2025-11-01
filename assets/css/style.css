@@ -1,0 +1,197 @@
+/* ==============================================
+   TEMEL AYARLAR VE DEĞİŞKENLER
+   ============================================== */
+
+/* Renkleri ve fontları buradan kolayca değiştirebilirsiniz */
+:root {
+  --ana-renk: #333; /* Koyu Gri / Siyah */
+  --ikincil-renk: #a63434; /* Restoran Kırmızısı (Örnek) */
+  --arkaplan-rengi: #f9f9f9; /* Çok açık gri */
+  --kart-arkaplan: #ffffff; /* Beyaz */
+  --yazi-rengi: #333;
+  --acik-yazi-rengi: #666;
+  --ana-font: 'Montserrat', sans-serif; /* HTML'e eklediğimiz font */
+}
+
+/* Temel Sıfırlama (Reset) */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--ana-font);
+  background-color: var(--arkaplan-rengi);
+  color: var(--yazi-rengi);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==============================================
+   GENEL YERLEŞİM (LAYOUT)
+   ============================================== */
+
+/* .container sınıfı, içeriği ortalar ve kenarlardan boşluk verir */
+.container {
+  max-width: 900px; /* İçerik en fazla 900px genişlesin */
+  margin: 0 auto; /* Otomatik olarak ortalar */
+  padding: 0 20px; /* Telefon ekranının kenarlarına yapışmasın */
+}
+
+/* ==============================================
+   HEADER (SAYFA BAŞLIĞI)
+   ============================================== */
+
+.site-header {
+  background-color: var(--ana-renk);
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+  margin-bottom: 30px; /* Başlıkla menü arasına boşluk */
+}
+
+.site-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+  color: var(--ikincil-renk); /* Başlığı Kırmızı yapar */
+}
+.site-header .logo {
+  max-width: 180px; 
+  height: auto;     
+  margin-bottom: 15px; }
+.site-header p {
+  font-size: 1.1rem;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* ==============================================
+   MENÜ İÇERİĞİ (ANA KISIM)
+   ============================================== */
+
+.menu-kategori {
+  /* Her kategori arasına boşluk koyar (Çorbalar, Ana Yemekler...) */
+  margin-bottom: 40px; 
+}
+
+.menu-kategori h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ana-renk);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid var(--ikincil-renk); /* Kategori başlığının altındaki çizgi */
+}
+
+/* ÜRÜN KARTI (En önemli kısım) */
+/* JS tarafından oluşturulacak her bir menü elemanı */
+.urun-karti {
+  background-color: var(--kart-arkaplan);
+  border-radius: 10px; /* Kenarları yuvarlatır */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Güzel bir gölge verir */
+  margin-bottom: 20px; /* Kartlar arası boşluk */
+  overflow: hidden; /* Resmin, kartın yuvarlak kenarlarından taşmasını engeller */
+  display: flex; /* Resmi ve içeriği yan yana koymak için (isteğe bağlı) */
+  flex-direction: row; /* Mobil için varsayılanı row yapalım, resim solda, içerik sağda */
+}
+
+.urun-karti img {
+  width: 120px; /* Resim için sabit bir genişlik */
+  height: 120px; /* Sabit bir yükseklik */
+  object-fit: cover; /* Resmin bozulmadan alanı kaplamasını sağlar */
+}
+
+.urun-karti-icerik {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Kalan tüm alanı kapla */
+}
+
+.urun-karti h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ana-renk);
+}
+
+.urun-karti p {
+  font-size: 0.9rem;
+  color: var(--acik-yazi-rengi);
+  margin-top: 5px;
+  flex-grow: 1; /* Açıklamanın, fiyatı en alta itmesini sağlar */
+}
+
+.urun-karti .fiyat {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ikincil-renk); /* Fiyatı kırmızı yapar */
+  margin-top: 10px;
+  text-align: right; /* Fiyatı sağa yaslar */
+}
+
+
+/* ==============================================
+   FOOTER (SAYFA ALTI)
+   ============================================== */
+
+.site-footer {
+  background-color: #222; /* Header'dan biraz daha açık bir koyu renk */
+  color: #aaa;
+  text-align: center;
+  padding: 25px 0;
+  margin-top: 40px; /* Ana içerikle arasına boşluk */
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin-bottom: 5px;
+}
+
+/* ==============================================
+   RESPONSIVE DÜZENLEMELER (BÜYÜK EKRANLAR)
+   ============================================== */
+
+/* * Telefonlar için zaten iyi görünüyor (Mobile-First).
+ * Şimdi tablet ve bilgisayar ekranları için düzenleme yapalım.
+ */
+
+@media (min-width: 768px) {
+  /* Ekran 768px'den büyükse (Tablet ve PC) */
+
+  /* Ürün listesini 2 sütunlu bir ızgara (grid) yap */
+  .urun-listesi {
+    display: grid;
+    /* İki sütun oluştur, aralarında 20px boşluk olsun */
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+  }
+
+  /* Ürün kartının tasarımını değiştir (Resim üstte, içerik altta) */
+  .urun-karti {
+    flex-direction: column; /* Resim ve içeriği alt alta getir */
+  }
+
+  .urun-karti img {
+    width: 100%; /* Resim kartın tüm genişliğini kaplasın */
+    height: 200px; /* Resim yüksekliği artsın */
+  }
+
+  .urun-karti h3 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Ekran 992px'den büyükse (Geniş PC Ekranları) */
+  
+  /* Izgara 3 sütunlu olsun (eğer 900px'lik container'ı büyütürseniz) */
+  /* .urun-listesi {
+    grid-template-columns: 1fr 1fr 1fr;
+  } */
+}

@@ -1,0 +1,98 @@
+{
+  "corbalar": [
+    {
+      "ad": "Mercimek Çorbası",
+      "fiyat": 75,
+      "aciklama": "Günlük, taze, limon ve kruton ile servis edilir.",
+      "resim_url": "assets/images/corba-mercimek.jpg"
+    },
+    {
+      "ad": "Ezogelin Çorbası",
+      "fiyat": 80,
+      "aciklama": "Özel baharatlarla, acılı.",
+      "resim_url": "assets/images/corba-ezogelin.jpg"
+    },
+    {
+      "ad": "Yayla Çorbası",
+      "fiyat": 75,
+      "aciklama": "Ev yapımı yoğurt ve nane ile.",
+      "resim_url": "assets/images/corba-yayla.jpg"
+    }
+  ],
+  "ana_yemekler": [
+    {
+      "ad": "Adana Kebap",
+      "fiyat": 250,
+      "aciklama": "Acılı, özel lavaş, közlenmiş domates ve biber ile.",
+      "resim_url": "assets/images/yemek-adana.jpg"
+    },
+    {
+      "ad": "Izgara Köfte",
+      "fiyat": 250,
+      "aciklama": "Pirinç pilavı ve patates kızartması ile servis edilir.",
+      "resim_url": "assets/images/yemek-kofte.jpg"
+    },
+    {
+      "ad": "Tavuk Şiş",
+      "fiyat": 200,
+      "aciklama": "Özel marine edilmiş, pilav ve salata ile.",
+      "resim_url": "assets/images/yemek-tavuksis.jpg"
+    },
+    {
+  "ad": "İskender Kebap",
+  "fiyat": 280,
+  "aciklama": "Özel tereyağlı sos ve yoğurt ile.",
+  "resim_url": "assets/images/yemek-iskender.jpg"
+},
+{
+  "ad": "Tavuk Kanat",
+  "fiyat": 230,
+  "aciklama": "Özel mangal sosuyla marine edilmiş,közlenmiş biber ile.",
+  "resim_url": "assets/images/yemek-kanat.jpg"
+}
+  ],
+  "icecekler": [
+    {
+      "ad": "Ayran",
+      "fiyat": 40,
+      "aciklama": "eker ayran, 300ml.",
+      "resim_url": "assets/images/icecek-ayran.jpg"
+    },
+    {
+      "ad": "Şalgam",
+      "fiyat": 45,
+      "aciklama": "Acılı / Acısız, 330ml.",
+      "resim_url": "assets/images/icecek-salgam.jpg"
+    },
+    {
+      "ad": "Sarıyer Gazoz",
+      "fiyat": 50,
+      "aciklama": "Cam şişe, 250ml.",
+      "resim_url": "assets/images/icecek-sariyer-gazoz.jpg"
+    },
+    {
+      "ad": "Sarıyer Kola",
+      "fiyat": 50,
+      "aciklama": "Cam şişe, 250ml.",
+      "resim_url": "assets/images/icecek-sariyer-kola.jpg"
+    },
+    {
+      "ad": "Sarıyer kutu Kola",
+      "fiyat": 55,
+      "aciklama": "Kutu 330ml.",
+      "resim_url": "assets/images/icecek-kola.jpg"
+    },
+    {
+      "ad": "Su",
+      "fiyat": 20,
+      "aciklama": "Pet şişe 500ml.",
+      "resim_url": "assets/images/icecek-su.jpg"
+    },
+    {
+      "ad": "Didi Soğuk Çay",
+      "fiyat": 50,
+      "aciklama": "Şeftali / Limon, Kutu 330ml.",
+      "resim_url": "assets/images/icecek-didi.jpg"
+    }
+  ]
+}
