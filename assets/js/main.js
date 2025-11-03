@@ -1,28 +1,75 @@
 // Bu kod, tüm HTML dokümanı (index.html) yüklendiğinde çalışmaya başlar.
 document.addEventListener('DOMContentLoaded', function() {
-    
-    /**
-     * Bu bizim GENEL render (ekrana basma) fonksiyonumuz.
-     * Hangi veri dizisini (örn: çorbalar dizisi) ve 
-     * HTML'deki hangi ID'li alana basılacağını (örn: 'corbalar-listesi') parametre olarak alır.
-     */
-    function renderKategori(urunDizisi, elementId) {
-        
-        // 1. HTML'de verilerin basılacağı konteyner elementi bul
-        const listeElementi = document.getElementById(elementId);
 
-        // 2. O elementin varlığını kontrol et
-        if (!listeElementi) {
-            console.error(`Hata: "${elementId}" ID'li element HTML'de bulunamadı.`);
-            return; // Bulamazsa fonksiyonu durdur
+    // 1. Gerekli Elementleri Seçme
+    const kategoriEkrani = document.getElementById('kategori-secim-ekrani');
+    const urunEkrani = document.getElementById('urun-listeleme-ekrani');
+    const geriButonu = document.getElementById('geri-butonu');
+    const kategoriKartlari = document.querySelectorAll('.kategori-kart'); // Tüm kategori kartlarını seç
+    const urunListesiHedefi = document.getElementById('urun-listesi-hedef');
+    const kategoriBasligiElementi = document.getElementById('secilen-kategori-basligi');
+
+    // Menü verisini saklamak için bir değişken (Fetch bir kez yapılacak)
+    let tumMenuVerisi = null;
+
+    /**
+     * JSON'u çeken ana fonksiyon
+     */
+    function menuyuYukle() {
+        fetch('assets/data/menu.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Veriyi global değişkene ata, böylece her tıklamada fetch yapmayız
+                tumMenuVerisi = data;
+                
+                // Kategori kartlarına tıklama olaylarını (event listeners) şimdi ekleyebiliriz
+                kategoriKartlarinaDinleyiciEkle();
+            })
+            .catch(error => {
+                console.error('Menü yüklenirken bir hata oluştu:', error);
+            });
+    }
+
+    /**
+     * Kategori kartlarına tıklama dinleyicilerini ekler
+     */
+    function kategoriKartlarinaDinleyiciEkle() {
+        kategoriKartlari.forEach(kart => {
+            kart.addEventListener('click', function() {
+                // Tıklanan kartın "data-kategori" (örn: "ana_yemekler") ve başlığını al
+                const kategoriKey = kart.dataset.kategori; // 'data-kategori' attribute'u
+                const kategoriBaslik = kart.querySelector('.kategori-baslik').textContent;
+
+                // İlgili kategorinin ürünlerini göster
+                urunleriGoster(kategoriKey, kategoriBaslik);
+            });
+        });
+    }
+
+    /**
+     * Seçilen kategorinin ürünlerini ekrana basar
+     */
+    function urunleriGoster(kategoriKey, kategoriBaslik) {
+        // Hata kontrolü: Veri henüz yüklenmediyse
+        if (!tumMenuVerisi) {
+            console.error('Menü verisi henüz yüklenmedi.');
+            return;
         }
 
-        // 3. HTML içeriğini oluşturmak için boş bir değişken başlat
+        // JSON verisinden doğru kategori dizisini al (örn: tumMenuVerisi['ana_yemekler'])
+        const urunDizisi = tumMenuVerisi[kategoriKey];
+
+        // Başlığı ayarla
+        kategoriBasligiElementi.textContent = kategoriBaslik;
+
+        // Ürün kartı HTML'ini oluştur
         let htmlIcerik = '';
-        
-        // 4. Bize verilen 'urunDizisi'ndeki her bir 'urun' için döngüye gir
         urunDizisi.forEach(urun => {
-            // ve o ürün için HTML kartını oluştur
             htmlIcerik += `
                 <div class="urun-karti">
                     <img src="${urun.resim_url}" alt="${urun.ad}">
@@ -34,51 +81,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `;
         });
+        
+        // Oluşan HTML'i listeye bas
+        urunListesiHedefi.innerHTML = htmlIcerik;
 
-        // 5. Oluşan tüm HTML'i, bulduğumuz konteyner elementinin içine bas
-        listeElementi.innerHTML = htmlIcerik;
+        // Ekranları değiştir (Kategorileri gizle, Ürünleri göster)
+        kategoriEkrani.classList.add('gizli');
+		urunEkrani.classList.remove('gizli');
     }
 
     /**
-     * Bu bizim ana fonksiyonumuz. JSON'u SADECE BİR KEZ çeker
-     * ve veriyi ilgili render fonksiyonlarına dağıtır.
+     * Geri butonuna tıklama olayını ayarlar
      */
-    function menuyuYukle() {
+    geriButonu.addEventListener('click', function() {
+        // Ekranları geri değiştir (Ürünleri gizle, Kategorileri göster)
+        urunEkrani.classList.add('gizli');
+        kategoriEkrani.classList.remove('gizli');
         
-        fetch('assets/data/menu.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(data => {
-                // JSON verisi 'data' değişkenine geldi. Şimdi dağıtım zamanı.
-                
-                // 1. Çorbaları render et
-                // data.corbalar dizisini al, 'corbalar-listesi' ID'li alana bas
-                renderKategori(data.corbalar, 'corbalar-listesi');
-                
-                // 2. Ana Yemekleri render et 
-                // data.ana_yemekler dizisini al, 'ana-yemekler-listesi' ID'li alana bas
-                renderKategori(data.ana_yemekler, 'ana-yemekler-listesi');
-                // 3. İçecekleri render et
-                // data.icecekler dizisini al, 'icecekler-listesi' ID'li alana bas
-                renderKategori(data.icecekler, 'icecekler-listesi');
-                //4.Salataları render et
-                //data.salatalar dizisini al, 'salatalar-listesi'ID'li alana bas
-                renderKategori(data.salatalar, 'salatalar-listesi');
-                //5.tatlıları render et
-                //data.tatlılar dizisini al, 'tatlılar-listesi'ID'li alana bas
-               renderKategori(data.tatlilar, 'tatlilar-listesi');
-            })
-            .catch(error => {
-                // Bir hata olursa konsola yazdır
-                console.error('Menü yüklenirken bir hata oluştu:', error);
-            });
-    }
+        // Eski listeyi temizle (performans için)
+        urunListesiHedefi.innerHTML = '';
+        kategoriBasligiElementi.textContent = '';
+    });
 
-    // Ana fonksiyonu çağırarak tüm menüyü yüklemeyi başlat
+
+    // --- ANA İŞLEM ---
+    // Her şey hazır, menüyü yüklemeyi başlat
     menuyuYukle();
 
 });

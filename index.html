@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="tr">
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,13 +13,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 
 <body>
 
     <header class="site-header">
         <div class="container">
-            <img src="assets/images/logo.png" alt="Restoran Logosu" class="logo">
+            <img src="assets/images/logo.png" alt="YUNHAS Restoran Logosu" class="logo">
             <h1>YUNHAS RESTORAN</h1>
             <p>Hızlı, kolay ve temassız menü.</p>
         </div>
@@ -29,35 +30,45 @@
     <main class="menu-container">
         <div class="container">
 
-            <section id="menu-kategorisi-corbalar" class="menu-kategori">
-                <h2>Çorbalar</h2>
-                <div class="urun-listesi" id="corbalar-listesi">
-                    </div>
-            </section>
+            <div id="kategori-secim-ekrani">
+                
+                <div class="kategori-grid">
 
-            <section id="menu-kategorisi-ana-yemekler" class="menu-kategori">
-                <h2>Ana Yemekler</h2>
-                <div class="urun-listesi" id="ana-yemekler-listesi">
+                    <div class="kategori-kart" data-kategori="corbalar">
+                        <img src="assets/images/corba-mercimek.jpg" alt="Çorbalar" class="kategori-resim">
+                        <div class="kategori-baslik">Çorbalar</div>
                     </div>
-            </section>
 
-            <section id="menu-kategorisi-salatalar" class="menu-kategori">
-            <h2>Salatalar</h2>
-            <div class="urun-listesi" id="salatalar-listesi">
-                </div>
-        </section>
-
-        <section id="menu-kategorisi-tatlilar" class="menu-kategori">
-            <h2>Tatlılar</h2>
-            <div class="urun-listesi" id="tatlilar-listesi">
-                </div>
-        </section>
-            <section id="menu-kategorisi-icecekler" class="menu-kategori">
-                <h2>İçecekler</h2>
-                <div class="urun-listesi" id="icecekler-listesi">
+                    <div class="kategori-kart" data-kategori="ana_yemekler">
+                        <img src="assets/images/yemek-adana.jpg" alt="Ana Yemekler" class="kategori-resim">
+                        <div class="kategori-baslik">Ana Yemekler</div>
                     </div>
-            </section>
-    </main>
+                    
+                    <div class="kategori-kart" data-kategori="salatalar">
+                        <img src="assets/images/salata-mevsim.jpg" alt="Salatalar" class="kategori-resim">
+                        <div class="kategori-baslik">Salatalar</div>
+                    </div>
+                    
+                    <div class="kategori-kart" data-kategori="tatlilar">
+                        <img src="assets/images/tatli-kunefe.jpg" alt="Tatlılar" class="kategori-resim">
+                        <div class="kategori-baslik">Tatlılar</div>
+                    </div>
+                    
+                    <div class="kategori-kart" data-kategori="icecekler">
+                        <img src="assets/images/icecek-kola.jpg" alt="İçecekler" class="kategori-resim">
+                        <div class="kategori-baslik">İçecekler</div>
+                    </div>
+
+                </div> </div> <div id="urun-listeleme-ekrani" class="gizli">
+                
+                <button id="geri-butonu" class="buton-geri">&larr; Geri Dön</button>
+                
+                <h2 id="secilen-kategori-basligi"></h2>
+                
+                <div class="urun-listesi" id="urun-listesi-hedef">
+                    </div>
+            
+            </div> </div> </main>
 
     <footer class="site-footer">
         <div class="container">

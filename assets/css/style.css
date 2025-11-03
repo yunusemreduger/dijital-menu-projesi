@@ -194,4 +194,93 @@ img {
   /* .urun-listesi {
     grid-template-columns: 1fr 1fr 1fr;
   } */
+}/* ==============================================
+   YENİ EKRAN VE GİZLEME STİLLERİ
+   ============================================== */
+
+/* Bu sınıf bir elementi gizler */
+.gizli {
+  display: none !important; /* !important, JS'nin işini garantiye alır */
+}
+
+/* ==============================================
+   KATEGORİ KARTI STİLLERİ (Ana Sayfa)
+   ============================================== */
+.kategori-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Telefonda 2 sütunlu ızgara */
+  gap: 20px; /* Kartlar arası boşluk */
+}
+
+.kategori-kart {
+  background-color: var(--kart-arkaplan);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  cursor: pointer; /* Tıklanabilir olduğunu gösterir */
+  transition: all 0.2s ease-in-out; /* Hafif bir animasyon */
+  border: 2px solid transparent;
+}
+
+.kategori-kart:hover {
+  transform: translateY(-5px); /* Üzerine gelince hafifçe yükselir */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  border-color: var(--ikincil-renk); /* Kenarları Kırmızı yapar */
+}
+
+.kategori-kart .kategori-resim {
+  width: 100%;
+  height: 150px; /* Kategori resim yüksekliği */
+  object-fit: cover; /* Resim bozulmadan sığar */
+}
+
+.kategori-kart .kategori-baslik {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ana-renk);
+  padding: 20px;
+  text-align: center;
+}
+
+/* ==============================================
+   ÜRÜN LİSTELEME EKRANI STİLLERİ
+   ============================================== */
+
+/* Geri Butonu */
+.buton-geri {
+  background-color: var(--ikincil-renk); /* Kırmızı */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+}
+.buton-geri:hover {
+  background-color: var(--ana-renk); /* Koyu renk */
+  transform: scale(1.05);
+}
+
+/* Seçilen Kategori Başlığı */
+#secilen-kategori-basligi {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ana-renk);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid var(--ikincil-renk);
+}
+
+/* ==============================================
+   RESPONSIVE (BÜYÜK EKRAN) DÜZENLEMESİ
+   ============================================== */
+
+@media (min-width: 768px) {
+  /* Tablet ve PC'de kategori ızgarası 3 sütunlu olsun */
+  .kategori-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
