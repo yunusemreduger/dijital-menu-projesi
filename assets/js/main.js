@@ -65,7 +65,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 3. İçecekleri render et
                 // data.icecekler dizisini al, 'icecekler-listesi' ID'li alana bas
                 renderKategori(data.icecekler, 'icecekler-listesi');
-               
+                //4.Salataları render et
+                //data.salatalar dizisini al, 'salatalar-listesi'ID'li alana bas
+                renderKategori(data.salatalar, 'salatalar-listesi');
+                //5.tatlıları render et
+                //data.tatlılar dizisini al, 'tatlılar-listesi'ID'li alana bas
+               renderKategori(data.tatlilar, 'tatlilar-listesi');
             })
             .catch(error => {
                 // Bir hata olursa konsola yazdır

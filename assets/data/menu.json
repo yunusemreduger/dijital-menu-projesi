@@ -94,5 +94,45 @@
       "aciklama": "Şeftali / Limon, Kutu 330ml.",
       "resim_url": "assets/images/icecek-didi.jpg"
     }
+     ],
+    "salatalar":[
+    {
+      "ad": "Mevsim Salata",
+      "fiyat": 90,
+      "aciklama": "Taze yeşillikler, domates, salatalık.",
+      "resim_url": "assets/images/salata-mevsim.jpg"
+    },
+    {
+      "ad": "Çoban Salata",
+      "fiyat": 85,
+      "aciklama": "Domates, salatalık, biber, soğan ve maydanoz.",
+      "resim_url": "assets/images/salata-coban.jpg"
+    },
+     {
+      "ad": "Akdeniz salatası",
+      "fiyat": 85,
+      "aciklama": "Akdeniz yeşilliği, dilimli kırmızı biber, dilimli siyah zeytin, küp kesilmiş beyaz peynir parçaları, dilimlenmiş domatesleri ve yanında salata sosu.",
+      "resim_url": "assets/images/salata-akdeniz.jpg"
+      }
+    ],
+  "tatlilar": [
+    {
+      "ad": "Künefe",
+      "fiyat": 350,
+      "aciklama": "Sıcak, peynirli ve şerbetli. Kaymak ile servis edilir(3kişilik).",
+      "resim_url": "assets/images/tatli-kunefe.jpg"
+    },
+    {
+      "ad": "Fırın Sütlaç",
+      "fiyat": 100,
+      "aciklama": "Geleneksel fırın sütlaç.",
+      "resim_url": "assets/images/tatli-sutlac.jpg"
+    },
+    {
+      "ad": "Baklava",
+      "fiyat": 250,
+      "aciklama": "Fıstıklı ev baklavası (4 adet).",
+      "resim_url": "assets/images/tatli-baklava.jpg"
+    }
   ]
 }
