@@ -83,6 +83,12 @@
       "resim_url": "assets/images/icecek-kola.jpg"
     },
     {
+      "ad": "Sarıyer portakallı kutu Kola",
+      "fiyat": 55,
+      "aciklama": "Kutu 330ml.",
+      "resim_url": "assets/images/icecek-sariyer- sarıkola.jpg"
+    },
+    {
       "ad": "Su",
       "fiyat": 20,
       "aciklama": "Pet şişe 500ml.",
