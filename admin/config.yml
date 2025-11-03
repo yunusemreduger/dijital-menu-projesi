@@ -1,0 +1,57 @@
+# Netlify CMS Ayar Dosyası
+
+# 1. Backend (Arka Uç) Ayarları
+# Netlify'a, GitHub reponuza Git Gateway üzerinden bağlanmasını söylüyoruz.
+backend:
+  name: git-gateway
+  branch: main # GitHub reponuzun ana kolu (muhtemelen 'main'dir)
+
+# 2. Medya (Resim) Ayarları
+# Admin panelinden "Resim Yükle" dendiğinde resimleri nereye atacağını söylüyoruz.
+media_folder: "assets/images" # Yüklenecek resimlerin klasörü
+public_folder: "assets/images" # Sitenin resimlere erişeceği yol
+
+# 3. Koleksiyonlar (Veri) Ayarları
+# Admin panelinin hangi dosyaları, nasıl düzenleyeceğini burada "tercüme" ediyoruz.
+collections:
+  - name: "menu" # Koleksiyonun ID'si (kod için)
+    label: "Menü Yönetimi" # Panelde görünecek başlık
+    label_singular: "Kategori"
+    # Bu, "birden fazla dosya" değil, "tek bir dosya" koleksiyonudur
+    files:
+      - name: "urunler" # Bu ayar grubunun ID'si
+        label: "Ürünler" # Panelde görünecek başlık
+        # Admin panelinin düzenleyeceği dosyanın yolu:
+        file: "assets/data/menu.json"
+        # O dosyanın içindeki alanları (fields) tanımlıyoruz:
+        fields:
+          - { label: "Çorbalar", name: "corbalar", widget: "list", fields: [
+              { label: "Ürün Adı", name: "ad", widget: "string" },
+              { label: "Fiyat (TL)", name: "fiyat", widget: "number" },
+              { label: "Açıklama", name: "aciklama", widget: "text" },
+              { label: "Resim", name: "resim_url", widget: "image" }
+            ]}
+          - { label: "Ana Yemekler", name: "ana_yemekler", widget: "list", fields: [
+              { label: "Ürün Adı", name: "ad", widget: "string" },
+              { label: "Fiyat (TL)", name: "fiyat", widget: "number" },
+              { label: "Açıklama", name: "aciklama", widget: "text" },
+              { label: "Resim", name: "resim_url", widget: "image" }
+            ]}
+          - { label: "Salatalar", name: "salatalar", widget: "list", fields: [
+              { label: "Ürün Adı", name: "ad", widget: "string" },
+              { label: "Fiyat (TL)", name: "fiyat", widget: "number" },
+              { label: "Açıklama", name: "aciklama", widget: "text" },
+              { label: "Resim", name: "resim_url", widget: "image" }
+            ]}
+          - { label: "Tatlılar", name: "tatlilar", widget: "list", fields: [
+              { label: "Ürün Adı", name: "ad", widget: "string" },
+              { label: "Fiyat (TL)", name: "fiyat", widget: "number" },
+              { label: "Açıklama", name: "aciklama", widget: "text" },
+              { label: "Resim", name: "resim_url", widget: "image" }
+            ]}
+          - { label: "İçecekler", name: "icecekler", widget: "list", fields: [
+              { label: "Ürün Adı", name: "ad", widget: "string" },
+              { label: "Fiyat (TL)", name: "fiyat", widget: "number" },
+              { label: "Açıklama", name: "aciklama", widget: "text" },
+              { label: "Resim", name: "resim_url", widget: "image" }
+            ]}
