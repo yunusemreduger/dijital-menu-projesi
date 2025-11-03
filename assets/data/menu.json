@@ -2,7 +2,7 @@
   "corbalar": [
     {
       "ad": "Mercimek Çorbası",
-      "fiyat": 75,
+      "fiyat": 80,
       "aciklama": "Günlük, taze, limon ve kruton ile servis edilir.",
       "resim_url": "assets/images/corba-mercimek.jpg"
     },
@@ -39,17 +39,17 @@
       "resim_url": "assets/images/yemek-tavuksis.jpg"
     },
     {
-  "ad": "İskender Kebap",
-  "fiyat": 280,
-  "aciklama": "Özel tereyağlı sos ve yoğurt ile.",
-  "resim_url": "assets/images/yemek-iskender.jpg"
-},
-{
-  "ad": "Tavuk Kanat",
-  "fiyat": 230,
-  "aciklama": "Özel mangal sosuyla marine edilmiş,közlenmiş biber ile.",
-  "resim_url": "assets/images/yemek-kanat.jpg"
-}
+      "ad": "İskender Kebap",
+      "fiyat": 280,
+      "aciklama": "Özel tereyağlı sos ve yoğurt ile.",
+      "resim_url": "assets/images/yemek-iskender.jpg"
+    },
+    {
+      "ad": "Tavuk Kanat",
+      "fiyat": 230,
+      "aciklama": "Özel mangal sosuyla marine edilmiş,közlenmiş biber ile.",
+      "resim_url": "assets/images/yemek-kanat.jpg"
+    }
   ],
   "icecekler": [
     {
@@ -100,8 +100,8 @@
       "aciklama": "Şeftali / Limon, Kutu 330ml.",
       "resim_url": "assets/images/icecek-didi.jpg"
     }
-     ],
-    "salatalar":[
+  ],
+  "salatalar": [
     {
       "ad": "Mevsim Salata",
       "fiyat": 90,
@@ -114,13 +114,13 @@
       "aciklama": "Domates, salatalık, biber, soğan ve maydanoz.",
       "resim_url": "assets/images/salata-coban.jpg"
     },
-     {
+    {
       "ad": "Akdeniz salatası",
       "fiyat": 85,
       "aciklama": "Akdeniz yeşilliği, dilimli kırmızı biber, dilimli siyah zeytin, küp kesilmiş beyaz peynir parçaları, dilimlenmiş domatesleri ve yanında salata sosu.",
       "resim_url": "assets/images/salata-akdeniz.jpg"
-      }
-    ],
+    }
+  ],
   "tatlilar": [
     {
       "ad": "Künefe",
